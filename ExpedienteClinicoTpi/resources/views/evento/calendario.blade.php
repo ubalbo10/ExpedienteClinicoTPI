@@ -35,10 +35,11 @@
 
     <div class="container">
       <div style="height:50px"></div>
-      <h1> Agenda</h1>
+      <h1>< tutofox /> <small>Oh my code!</small></h1>
       <p class="lead">
-      <h3>Calendario</h3>
-      <p>calendario que servira para realizar la agenda</p>
+      <h3>Calendario - evento</h3>
+      <a class="btn btn-default"  href="{{ asset('/Evento/form') }}">Crear un evento</a>
+
 
       <hr>
 
@@ -73,6 +74,12 @@
           @if  ($dayweek['mes']==$mes)
             <div class="col box-day">
               {{ $dayweek['dia']  }}
+              <!-- evento -->
+              @foreach  ($dayweek['evento'] as $event) 
+                  <a class="badge badge-primary" href="{{ asset('/Evento/details/') }}/{{ $event->id }}">
+                    {{ $event->titulo }}
+                  </a>
+              @endforeach
             </div>
           @else
           <div class="col box-dayoff">
