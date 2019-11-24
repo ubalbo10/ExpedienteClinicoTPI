@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Paciente extends Model
 {
     // le decimos que tabla de la base de datos esta asignada a este modelo
-    protected $table= 'evento';
+    protected $table= 'paciente';
 
     //
     protected $fillable = [
-        'titulo', 'descripcion', 'fecha','id_paciente','id_doctor',
+        'nombre', 'edad', 'DUI',
     ];
 
     public $timestamps = false;

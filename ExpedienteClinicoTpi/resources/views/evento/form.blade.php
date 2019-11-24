@@ -75,6 +75,25 @@
             <label>Fecha</label>
             <input type="date" class="form-control" name="fecha">
           </div>
+          <div class="fomr-group">
+            <label>Paciente</label>
+            <select  class="form-control" name="id_paciente">
+            @foreach ($pacientes as $paciente)
+            <option value="{{$paciente['id_paciente']}}">{{$paciente['nombre']}}</option>
+            @endforeach
+            </select>
+          </div>
+          <div class="fomr-group">
+            <label>Doctor</label>
+             
+            <select  class="form-control" name="id_doctor">
+            @foreach ($doctores as $doctor)
+            <option value="{{$doctor['id_doctor']}}">{{$doctor['nombre']}}</option>
+            @endforeach
+            </select>
+          </div>
+
+          
           <br>
           <input type="submit" class="btn btn-info" value="Guardar">
         </form>

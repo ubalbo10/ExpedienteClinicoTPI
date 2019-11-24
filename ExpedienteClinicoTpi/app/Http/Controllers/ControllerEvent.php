@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use App\Doctor;
+use App\Paciente;
 
 class ControllerEvent extends Controller
 {
     //
     public function form(){
-      return view("evento/form");
+      $doctores = Doctor::all();
+      $pacientes=Paciente::all(); 
+      return view("evento/form",[
+        "doctores" => $doctores,
+        "pacientes" => $pacientes
+      ]);
     }
 
     public function create(Request $request){
@@ -23,10 +30,16 @@ class ControllerEvent extends Controller
      //uso del orm mezclado con las consultas basicas proporcionadas por laravel 
      // esto se pudo a ver realizado con $event= new Event;
     // y despues con save cuando cada atributo ya lo huvieramos asignados 
+    
+
+
+
      Event::insert([
         'titulo'       => $request->input("titulo"),
         'descripcion'  => $request->input("descripcion"),
-        'fecha'        => $request->input("fecha")
+        'fecha'        => $request->input("fecha"),
+        'id_paciente'  => $request->input("id_paciente"),
+        'id_doctor'    => $request->input("id_doctor")
       ]);
 
       return back()->with('success', 'Enviado exitosamente!');
