@@ -20,7 +20,10 @@ class ControllerEvent extends Controller
       'fecha' =>  'required'
      ]);
 
-      Event::insert([
+     //uso del orm mezclado con las consultas basicas proporcionadas por laravel 
+     // esto se pudo a ver realizado con $event= new Event;
+    // y despues con save cuando cada atributo ya lo huvieramos asignados 
+     Event::insert([
         'titulo'       => $request->input("titulo"),
         'descripcion'  => $request->input("descripcion"),
         'fecha'        => $request->input("fecha")
