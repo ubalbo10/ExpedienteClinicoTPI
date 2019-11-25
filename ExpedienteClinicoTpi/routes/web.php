@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('registro','ControllerMedico@registro'); 
+
 Route::get('Calendar/event','ControllerCalendar@index'); 
 Route::get('Calendar/event/{mes}','ControllerCalendar@index_month');
 Route::get('Evento/form','ControllerEvent@form');
@@ -23,3 +23,7 @@ Route::get('Evento/details/{id}','ControllerEvent@details');
 Route::get('Evento/index','ControllerEvent@index');
 Route::get('Evento/index/{month}','ControllerEvent@index_month');
 Route::post('Evento/calendario','ControllerEvent@calendario');
+Route::get('Registro/Medico','ControllerMedico@registroMedico');
+Route::post('Medico/create','ControllerMedico@create');
+Route::get('Registro/Paciente','ControllerPaciente@registroPaciente');
+Route::post('Paciente/create','ControllerPaciente@create');

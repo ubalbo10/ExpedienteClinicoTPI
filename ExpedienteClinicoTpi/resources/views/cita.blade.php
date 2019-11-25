@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-
 <html>
-<head>
+  <head>
     <title></title>
     <meta content="">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -33,8 +31,15 @@
     </style>
 
   </head>
-<body>
-@if (count($errors) > 0)
+  <body>
+
+    <div class="container">
+      <div style="height:50px"></div>
+      <h1>< Registro de Medico /> <small>Oh my code!</small></h1>
+      <a class="btn btn-default"  href="{{ asset('/Evento/index') }}">Atras</a>
+      <hr>
+
+      @if (count($errors) > 0)
         <div class="alert alert-danger">
          <button type="button" class="close" data-dismiss="alert">×</button>
          <ul>
@@ -52,49 +57,62 @@
        @endif
 
 
-<div class="col-md-6">
-<form action="{{ asset('/Medico/create/') }}" method="post">
+      <div class="col-md-6">
+        <form action="{{ asset('/Paciente/create/') }}" method="post">
           @csrf
           <div class="fomr-group">
-            <label>Nombre</label>
-            <input type="text" class="form-control" name="nombre">
+            <label>Titulo</label>
+            <input type="text" class="form-control" name="titulo">
           </div>
           <div class="fomr-group">
-            <label>Apellidos</label>
-            <input type="text" class="form-control" name="apellidos">
+            <label>Descripcion del Evento</label>
+            <input type="text" class="form-control" name="descripcion">
           </div>
           <div class="fomr-group">
-            <label>Edad</label>
-            <input type="text" class="form-control" name="edad">
+            <label>Fecha</label>
+            <input type="date" class="form-control" name="fecha">
           </div>
-          
           <div class="fomr-group">
-            <label>Area de Especializacion</label>
-            <select type="date" class="form-control" name="especialidad">
-            <option value="1">General</option> 
-            <option value="2">Odontologia </option> 
-            <option value="3">Radiologia</option>
-  
-  
+            <label>Paciente</label>
+            <select  class="form-control" name="id_paciente">
+            @foreach ($pacientes as $paciente)
+            <option value="{{$paciente['id_paciente']}}">{{$paciente['nombre']}}</option>
+            @endforeach
             </select>
           </div>
           <div class="fomr-group">
-            <label>DUI</label>
-            <input type="text" class="form-control" name="dui">
+            <label>Doctor</label>
+             
+            <select  class="form-control" name="id_doctor">
+            @foreach ($doctores as $doctor)
+            <option value="{{$doctor['id_doctor']}}">{{$doctor['nombre']}}</option>
+            @endforeach
+            </select>
           </div>
-          <div class="fomr-group">
-            <label>NIT</label>
-            <input type="text" class="form-control" name="nit">
-          </div>
-          <br>       
+
           
+          <br>
           <input type="submit" class="btn btn-info" value="Guardar">
         </form>
-        </div>
-   
-  
+      </div>
 
 
+      <!-- inicio de semana -->
 
-</body>
+
+    </div> <!-- /container -->
+
+    <!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">
+    Developed by Artyom from
+    <a href="https://www.tutofox.com/">  < tutofox/></a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+  </body>
 </html>

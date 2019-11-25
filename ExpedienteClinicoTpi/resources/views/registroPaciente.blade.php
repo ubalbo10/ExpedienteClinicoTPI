@@ -52,39 +52,23 @@
        @endif
 
 
+
 <div class="col-md-6">
-<form action="{{ asset('/Medico/create/') }}" method="post">
+<form action="{{ asset('/Paciente/create/') }}" method="post">
           @csrf
           <div class="fomr-group">
             <label>Nombre</label>
             <input type="text" class="form-control" name="nombre">
           </div>
-          <div class="fomr-group">
-            <label>Apellidos</label>
-            <input type="text" class="form-control" name="apellidos">
-          </div>
+          
           <div class="fomr-group">
             <label>Edad</label>
             <input type="text" class="form-control" name="edad">
           </div>
           
           <div class="fomr-group">
-            <label>Area de Especializacion</label>
-            <select type="date" class="form-control" name="especialidad">
-            <option value="1">General</option> 
-            <option value="2">Odontologia </option> 
-            <option value="3">Radiologia</option>
-  
-  
-            </select>
-          </div>
-          <div class="fomr-group">
             <label>DUI</label>
             <input type="text" class="form-control" name="dui">
-          </div>
-          <div class="fomr-group">
-            <label>NIT</label>
-            <input type="text" class="form-control" name="nit">
           </div>
           <br>       
           
