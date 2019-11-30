@@ -6,9 +6,19 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\Doctor;
 use App\Paciente;
+use DB;
 
 class ControllerPaciente extends Controller
 {
+    public function index(Request $request){
+        if ($request)
+        {
+            $query=trim($request->get('searchText'));
+            $pacientes=DB::table('paciente')->where('nombre','LIKE','%'.$query.'%')
+            ->paginate(7);
+            return view('paciente/index',["pacientes"=>$pacientes,"searchText"=>$query]);
+        }
+    }
     //
     public function registroPaciente(){
 

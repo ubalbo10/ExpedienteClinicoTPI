@@ -27,3 +27,5 @@ Route::get('Registro/Medico','ControllerMedico@registroMedico');
 Route::post('Medico/create','ControllerMedico@create');
 Route::get('Registro/Paciente','ControllerPaciente@registroPaciente');
 Route::post('Paciente/create','ControllerPaciente@create');
+Route::get('Registro/Consulta','ControllerConsulta@registroConsulta');
+Route::get('Paciente','ControllerPaciente@index');
