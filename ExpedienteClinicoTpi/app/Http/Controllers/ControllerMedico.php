@@ -45,6 +45,17 @@ class ControllerMedico extends Controller
         return back()->with('success', 'Enviado exitosamente!');
   
       }
+
+      
+    public function ListaMedicos(){
+
+      $medicos = Doctor::All();
+
+      return view("medico/listar",[
+        "medicos" => $medicos
+      ]);
+
+    }
   
     
   

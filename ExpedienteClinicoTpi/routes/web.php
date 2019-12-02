@@ -29,3 +29,5 @@ Route::get('Registro/Paciente','ControllerPaciente@registroPaciente');
 Route::post('Paciente/create','ControllerPaciente@create');
 Route::get('Registro/Consulta','ControllerConsulta@registroConsulta');
 Route::get('Paciente','ControllerPaciente@index');
+Route::get('Medico/Listar','ControllerMedico@ListaMedicos');
+Route::get('Paciente/Listar','ControllerPaciente@ListaPacientes');

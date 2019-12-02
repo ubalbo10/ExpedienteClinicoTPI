@@ -27,6 +27,15 @@ class ControllerPaciente extends Controller
   
     }
     
+    public function ListaPacientes(){
+
+        $pacientes = Paciente::All();
+  
+        return view("paciente/listar",[
+          "pacientes" => $pacientes
+        ]);
+  
+      }
   
       public function create(Request $request){
         
