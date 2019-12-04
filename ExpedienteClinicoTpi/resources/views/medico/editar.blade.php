@@ -1,5 +1,7 @@
+<!DOCTYPE html>
+
 <html>
-  <head>
+<head>
     <title></title>
     <meta content="">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -31,18 +33,8 @@
     </style>
 
   </head>
-  <body>
-
-    <div class="container">
-      <div style="height:50px"></div>
-      <h1>< tutofox /> <small>Oh my code!</small></h1>
-      <p class="lead">
-      <h3>Evento</h3>
-      <p>Formulario de evento</p>
-      <a class="btn btn-default"  href="{{ asset('/Evento/index') }}">Atras</a>
-      <hr>
-
-      @if (count($errors) > 0)
+<body>
+@if (count($errors) > 0)
         <div class="alert alert-danger">
          <button type="button" class="close" data-dismiss="alert">×</button>
          <ul>
@@ -60,63 +52,49 @@
        @endif
 
 
-      <div class="col-md-6">
-        <form action="{{ asset('/Evento/create/') }}" method="post">
+<div class="col-md-6">
+<form action="{{ asset('/Medico/createUpdate/') }}" method="post">
           @csrf
           <div class="fomr-group">
-            <label>Titulo</label>
-            <input type="text" class="form-control" name="titulo">
+            <label>Nombre</label>
+            <input type="text" class="form-control" name="nombre" value="{{$doctor['nombre']}}">
           </div>
           <div class="fomr-group">
-            <label>Descripcion del Evento</label>
-            <input type="text" class="form-control" name="descripcion">
+            <label>Apellidos</label>
+            <input type="text" class="form-control" name="apellidos" value="{{$doctor['apellidos']}}">
           </div>
           <div class="fomr-group">
-            <label>Fecha y hora</label>
-            <input type="date" class="form-control" name="fecha">
-            <input type="time" class="form-control" name="hora">
+            <label>Edad</label>
+            <input type="text" class="form-control" name="edad" value="{{$doctor['edad']}}">
           </div>
-          <div class="fomr-group">
-            <label>Paciente</label>
-            <select  class="form-control" name="id_paciente">
-            @foreach ($pacientes as $paciente)
-            <option value="{{$paciente['id_paciente']}}">{{$paciente['nombre']}}</option>
-            @endforeach
-            </select>
-          </div>
-          <div class="fomr-group">
-            <label>Doctor</label>
-             
-            <select  class="form-control" name="id_doctor">
-            @foreach ($doctores as $doctor)
-            <option value="{{$doctor['id_doctor']}}">{{$doctor['nombre']}}</option>
-            @endforeach
-            </select>
-          </div>
-
           
-          <br>
+          <div class="fomr-group">
+            <label>Area de Especializacion</label>
+            <select type="date" class="form-control" name="especialidad" value="{{$doctor['especialidad']}}">
+            <option value="1">General</option> 
+            <option value="2">Odontologia </option> 
+            <option value="3">Radiologia</option>
+  
+  
+            </select>
+          </div>
+          <div class="fomr-group">
+            <label>DUI</label>
+            <input type="text" class="form-control" name="dui" value="{{$doctor['DUI']}}">
+          </div>
+          <div class="fomr-group">
+            <label>NIT</label>
+            <input type="text" class="form-control" name="nit" value="{{$doctor['nit']}}">
+          </div>
+          <br>       
+          
           <input type="submit" class="btn btn-info" value="Guardar">
         </form>
-      </div>
+        </div>
+   
+  
 
 
-      <!-- inicio de semana -->
 
-
-    </div> <!-- /container -->
-
-    <!-- Footer -->
-<footer class="page-footer font-small blue pt-4">
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">
-    Developed by Artyom from
-    <a href="https://www.tutofox.com/">  < tutofox/></a>
-  </div>
-  <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
-
-  </body>
+</body>
 </html>

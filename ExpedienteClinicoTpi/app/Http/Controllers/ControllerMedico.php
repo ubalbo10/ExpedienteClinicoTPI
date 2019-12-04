@@ -56,8 +56,26 @@ class ControllerMedico extends Controller
       ]);
 
     }
-  
     
+    // public function updateMedicos($id_doctor){
+
+        
+    //   $doctor=Doctor::where('id_doctor',$id_doctor);
+      
+
+    //   return view("medico/editar",[
+    //     "doctor" => $doctor
+    //   ]);
+
+    // }
+    public function deleteMedicos($id_medico){
+      Event::where('id_doctor',$id_medico)->delete();
+      Doctor::where('id_doctor',$id_medico)->delete();
+      
+
+      return redirect("/Medico/Listar");
+
+    }
   
      
 }

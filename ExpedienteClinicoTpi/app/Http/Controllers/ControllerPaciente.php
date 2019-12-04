@@ -37,6 +37,26 @@ class ControllerPaciente extends Controller
   
       }
   
+      public function deletePacientes($id_paciente){
+        Event::where('id_paciente',$id_paciente)->delete();
+        Paciente::where('id_paciente',$id_paciente)->delete();
+        
+  
+        return redirect("/Paciente/Listar");
+  
+      }
+  
+      // public function updatePacientes($id_paciente){
+
+        
+      //   $paciente=Paciente::where('id_paciente',$id_paciente);
+        
+  
+      //   return view("paciente/editar",[
+      //     "paciente" => $paciente
+      //   ]);
+  
+      // }
       public function create(Request $request){
         
   

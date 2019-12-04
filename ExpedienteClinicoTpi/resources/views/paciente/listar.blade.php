@@ -62,7 +62,23 @@
     <td>{{$paciente['edad']}}</td>
 
     <td>{{$paciente['DUI']}}</td>
-    
+    <td>
+    <form action="{{ url('paciente')}}/{{ $paciente->id_paciente}}" method="POST">
+    {{csrf_field()}}
+    {{method_field('DELETE')}}
+    <button type="submit" class="btn btn-danger">
+    Delete
+    </button>
+    </form>
+    {{--   <form action="{{ url('paciente')}}/{{ $paciente->id_paciente}}" method="POST">
+    {{csrf_field()}}
+    {{method_field('GET')}}
+    <button type="submit" class="btn btn-danger">
+    Editar
+    </button>
+    </form> --}}
+    </td>
+
   </tr>
 @endforeach
 </table>
