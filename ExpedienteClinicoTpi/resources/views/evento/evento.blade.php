@@ -35,7 +35,7 @@
 
     <div class="container">
       <div style="height:50px"></div>
-      <h1>< tutofox /> <small>Oh my code!</small></h1>
+      
       <p class="lead">
       <h3>Evento</h3>
       <p>Detalles de evento</p>
@@ -73,8 +73,7 @@
 <footer class="page-footer font-small blue pt-4">
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">
-    Developed by Artyom from
-    <a href="https://www.tutofox.com/">  < tutofox/></a>
+  
   </div>
   <!-- Copyright -->
 </footer>
