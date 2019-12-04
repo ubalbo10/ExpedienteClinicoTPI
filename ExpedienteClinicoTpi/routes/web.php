@@ -31,3 +31,7 @@ Route::get('Registro/Consulta','ControllerConsulta@registroConsulta');
 Route::get('Paciente','ControllerPaciente@index');
 Route::get('Medico/Listar','ControllerMedico@ListaMedicos');
 Route::get('Paciente/Listar','ControllerPaciente@ListaPacientes');
+
+Route::get('admin/layout', function () {
+    return view('admin.layout');
+});
