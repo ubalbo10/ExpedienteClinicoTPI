@@ -35,3 +35,11 @@ Route::get('Paciente/Listar','ControllerPaciente@ListaPacientes');
 Route::get('admin/layout', function () {
     return view('admin.layout');
 });
+Auth::routes();
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');
+Route::get('test/layout', function () {
+    return view('test');
+});
