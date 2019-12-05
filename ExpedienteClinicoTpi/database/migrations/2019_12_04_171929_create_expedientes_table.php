@@ -16,8 +16,8 @@ class CreateExpedientesTable extends Migration
         Schema::create('expedientes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('codigoExp')->unsigned();
-            $table->string('dui', 9);
-            $table->foreign('persona_id')->references('dui')->on('personas');
+            $table->bigInteger('persona_id')->unsigned();
+            $table->foreign('persona_id')->references('id')->on('personas');
             $table->timestamps();
         });
     }

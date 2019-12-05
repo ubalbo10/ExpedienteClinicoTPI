@@ -15,10 +15,10 @@ class CreateCitasTable extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('consulta_id');
+            $table->bigInteger('consulta_id')->unsigned();
             $table->foreign('consulta_id')->references('id')->on('consultas')->onDelete('cascade');
-            $table->date('fecha')->nullable()->default(new DateTime('now +1 day'));
-            $table->time('hora')->nullable()->default(new DateTime());
+            $table->date('fecha')->nullable();
+            $table->time('hora')->nullable();
             $table->timestamps();
         });
     }

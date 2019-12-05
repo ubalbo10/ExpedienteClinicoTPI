@@ -14,11 +14,12 @@ class CreatePersonasTable extends Migration
     public function up()
     {
         Schema::create('personas', function (Blueprint $table) {
-            $table->string('dui')->primary();
-            $table->bigIncrements('usuario_id')->nullable()->unsigned();
+            $table->bigIncrements('id');
+            $table->string('dui', 10);
+            $table->bigInteger('usuario_id')->nullable()->unsigned();
             $table->foreign('usuario_id')->references('id')->on('users')->onDelete('set null');
-            $table->bigIncrements('municipio_id')->nullable();
-            $table->foreign('munucipio_id')->references('id')->on('municipios')->onDelete('set null');
+            $table->bigInteger('municipio_id')->unsigned();
+            $table->foreign('municipio_id')->references('id')->on('municipios');
             $table->string('nombre', 50);
             $table->string('apellidos', 50);
             $table->date('fechaNac');

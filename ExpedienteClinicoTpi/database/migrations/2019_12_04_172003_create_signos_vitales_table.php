@@ -19,7 +19,7 @@ class CreateSignosVitalesTable extends Migration
             $table->double('peso', 5, 2)->nullable()->default(000.00);
             $table->integer('ritmo_cardiaco')->unsigned()->nullable()->default(70);
             $table->string('presion_arterial', 7)->nullable();
-            $table->bigIncrements('consulta_id');
+            $table->biginteger('consulta_id')->unsigned();
             $table->foreign('consulta_id')->references('id')->on('consultas')->onDelete('cascade');
             $table->timestamps();
         });

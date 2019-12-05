@@ -15,8 +15,8 @@ class CreateDetalleOrdenExamensTable extends Migration
     {
         Schema::create('detalle_orden_examens', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('examen_id');
-            $table->bigIncrements('orden_examen_id');
+            $table->bigInteger('examen_id')->unsigned();
+            $table->bigInteger('orden_examen_id')->unsigned();
             $table->foreign('examen_id')->references('id')->on('examenes');
             $table->foreign('orden_examen_id')->references('id')->on('orden_examenes')->onDelete('cascade');
             $table->boolean('realizado')->nullable()->default(false);

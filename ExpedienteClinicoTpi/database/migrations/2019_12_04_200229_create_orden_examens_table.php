@@ -15,7 +15,7 @@ class CreateOrdenExamensTable extends Migration
     {
         Schema::create('orden_examenes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('consulta_id');
+            $table->bigInteger('consulta_id')->unsigned();
             $table->foreign('consulta_id')->references('id')->on('consultas')->onDelete('cascade');
             $table->timestamps();
         });
