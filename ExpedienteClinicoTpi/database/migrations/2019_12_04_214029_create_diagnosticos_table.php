@@ -17,7 +17,8 @@ class CreateDiagnosticosTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('consulta_id')->unsigned();
             $table->foreign('consulta_id')->references('id')->on('consultas')->onDelete('cascade');
-            //Enfermedad
+            $table->bigInteger('enfermedad_id')->unsigned();
+            $table->foreign('enfermedad_id')->references('id')->on('enfermedads')->onDelete('cascade');
             $table->string('descripcion', 500)->nullable()->default('Descripcion');
             $table->timestamps();
         });

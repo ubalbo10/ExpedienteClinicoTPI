@@ -19,7 +19,7 @@ class CreateConsultasTable extends Migration
             $table->bigInteger('expediente_id')->unsigned();
             $table->bigInteger('predecesora_id')->unsigned();
             $table->bigInteger('sucesora_id')->unsigned();
-            //Especialidad
+            $table->bigInteger('especialidad_id')->unsigned();
             $table->string('resumen', 1024)->nullable()->default('Resumen');
             $table->date('fecha')->nullable();
             $table->time('horaInicio')->nullable();
@@ -28,6 +28,7 @@ class CreateConsultasTable extends Migration
             $table->foreign('expediente_id')->references('id')->on('expedientes');
             $table->foreign('predecesora_id')->references('id')->on('consultas');
             $table->foreign('sucesora_id')->references('id')->on('consultas');
+            $table->foreign('especialidad_id')->references('id')->on('especialidads');
             $table->timestamps();
         });
     }

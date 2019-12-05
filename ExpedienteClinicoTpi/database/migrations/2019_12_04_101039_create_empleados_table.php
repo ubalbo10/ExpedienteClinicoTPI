@@ -19,8 +19,10 @@ class CreateEmpleadosTable extends Migration
             $table->bigInteger('persona_id')->unsigned();
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->integer('jvpm')->unsigned()->nullable();
-            //Especialidad
-            //Cargo
+            $table->bigInteger('cargo_id')->unsigned();
+            $table->foreign('cargo_id')->references('id')->on('cargos');
+            $table->bigInteger('especialidad_id')->unsigned();
+            $table->foreign('especialidad_id')->references('id')->on('especialidads');
             $table->string('tipoEmpleado', 15);
             $table->timestamps();
             $table->softDeletes();
