@@ -16,8 +16,8 @@ class CreateEmpleadosTable extends Migration
         Schema::create('empleados', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('codigoEmp')->unsigned();
-            $table->string('dui', 10)->nullable();
-            $table->foreign('dui')->references('id')->on('personas');
+            $table->bigInteger('persona_id')->unsigned();
+            $table->foreign('persona_id')->references('id')->on('personas');
             $table->integer('jvpm')->unsigned()->nullable();
             //Especialidad
             //Cargo

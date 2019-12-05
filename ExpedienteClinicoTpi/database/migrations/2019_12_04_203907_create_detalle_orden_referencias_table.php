@@ -15,8 +15,8 @@ class CreateDetalleOrdenReferenciasTable extends Migration
     {
         Schema::create('detalle_orden_referencias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('cita_id');
-            $table->bigIncrements('ordenref_id');
+            $table->bigInteger('cita_id')->unsigned();
+            $table->bigInteger('ordenref_id')->unsigned();
             $table->foreign('cita_id')->references('id')->on('citas')->onDelete('cascade');
             $table->foreign('ordenref_id')->references('id')->on('orden_referencias')->onDelete('cascade');
             $table->timestamps();

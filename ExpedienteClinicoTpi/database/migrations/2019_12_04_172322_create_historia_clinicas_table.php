@@ -20,7 +20,7 @@ class CreateHistoriaClinicasTable extends Migration
             $table->string('ant_familiares', 510)->nullable()->default('text');
             $table->string('ant_personales', 510)->nullable()->default('text');
             $table->string('resumen', 300)->nullable()->default('text');
-            $table->bigIncrements('expediente_id');
+            $table->bigInteger('expediente_id')->unsigned();
             $table->foreign('expediente_id')->references('id')->on('expedientes')->onDelete('cascade');
             $table->timestamps();
         });

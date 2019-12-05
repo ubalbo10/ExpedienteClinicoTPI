@@ -14,15 +14,15 @@ class CreateConsultasTable extends Migration
     public function up()
     {
         Schema::create('consultas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigIncrements('empleado_id')->unsigned();
-            $table->bigIncrements('expediente_id');
-            $table->bigIncrements('predecesora_id');
-            $table->bigIncrements('sucesora_id');
+           $table->bigIncrements('id');
+            $table->bigInteger('empleado_id')->unsigned();
+            $table->bigInteger('expediente_id')->unsigned();
+            $table->bigInteger('predecesora_id')->unsigned();
+            $table->bigInteger('sucesora_id')->unsigned();
             //Especialidad
             $table->string('resumen', 1024)->nullable()->default('Resumen');
-            $table->date('fecha')->nullable()->default(new DateTime());
-            $table->time('horaInicio')->nullable()->default(new DateTime());
+            $table->date('fecha')->nullable();
+            $table->time('horaInicio')->nullable();
             $table->time('horaFin')->nullable();
             $table->foreign('empleado_id')->references('id')->on('empleados');
             $table->foreign('expediente_id')->references('id')->on('expedientes');
